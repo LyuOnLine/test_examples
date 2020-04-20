@@ -1,0 +1,13 @@
+syntax = "proto2";
+package test;
+
+enum TestEnum {
+	UNKOWN = 0;
+	ENUM1 = 1;
+	ENUM2 = 2;
+}
+
+message TestMessage {
+	required TestEnum testEnum = 1;
+	required int32 testInt = 2;
+}
