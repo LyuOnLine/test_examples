@@ -8,6 +8,6 @@ enum TestEnum {
 }
 
 message TestMessage {
-	required TestEnum testEnum = 1;
+	optional TestEnum testEnum = 1;
 	required int32 testInt = 2;
 }

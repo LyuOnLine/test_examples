@@ -207,7 +207,7 @@ class TestMessage :
     kTestEnumFieldNumber = 1,
     kTestIntFieldNumber = 2,
   };
-  // required .test.TestEnum testEnum = 1;
+  // optional .test.TestEnum testEnum = 1;
   bool has_testenum() const;
   private:
   bool _internal_has_testenum() const;
@@ -237,9 +237,6 @@ class TestMessage :
  private:
   class _Internal;
 
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
-
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -258,7 +255,7 @@ class TestMessage :
 #endif  // __GNUC__
 // TestMessage
 
-// required .test.TestEnum testEnum = 1;
+// optional .test.TestEnum testEnum = 1;
 inline bool TestMessage::_internal_has_testenum() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;

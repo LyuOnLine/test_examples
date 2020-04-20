@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
 	TestMessage msg;
 	string buf;
-	msg.set_testenum(TestEnum(1));
+	msg.set_testenum(TestEnum(100));
 	msg.set_testint(20);
 	msg.SerializeToString(&buf);
 

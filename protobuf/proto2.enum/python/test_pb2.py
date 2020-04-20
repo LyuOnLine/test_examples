@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='test',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\ntest.proto\x12\x04test\"@\n\x0bTestMessage\x12 \n\x08testEnum\x18\x01 \x02(\x0e\x32\x0e.test.TestEnum\x12\x0f\n\x07testInt\x18\x02 \x02(\x05*,\n\x08TestEnum\x12\n\n\x06UNKOWN\x10\x00\x12\t\n\x05\x45NUM1\x10\x01\x12\t\n\x05\x45NUM2\x10\x02')
+  serialized_pb=_b('\n\ntest.proto\x12\x04test\"@\n\x0bTestMessage\x12 \n\x08testEnum\x18\x01 \x01(\x0e\x32\x0e.test.TestEnum\x12\x0f\n\x07testInt\x18\x02 \x02(\x05*,\n\x08TestEnum\x12\n\n\x06UNKOWN\x10\x00\x12\t\n\x05\x45NUM1\x10\x01\x12\t\n\x05\x45NUM2\x10\x02')
 )
 
 _TESTENUM = _descriptor.EnumDescriptor(
@@ -65,7 +65,7 @@ _TESTMESSAGE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='testEnum', full_name='test.TestMessage.testEnum', index=0,
-      number=1, type=14, cpp_type=8, label=2,
+      number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,

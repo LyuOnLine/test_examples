@@ -59,7 +59,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_test_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\ntest.proto\022\004test\"@\n\013TestMessage\022 \n\010tes"
-  "tEnum\030\001 \002(\0162\016.test.TestEnum\022\017\n\007testInt\030\002"
+  "tEnum\030\001 \001(\0162\016.test.TestEnum\022\017\n\007testInt\030\002"
   " \002(\005*,\n\010TestEnum\022\n\n\006UNKOWN\020\000\022\t\n\005ENUM1\020\001\022"
   "\t\n\005ENUM2\020\002"
   ;
@@ -174,7 +174,7 @@ const char* TestMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // required .test.TestEnum testEnum = 1;
+      // optional .test.TestEnum testEnum = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
@@ -222,7 +222,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required .test.TestEnum testEnum = 1;
+  // optional .test.TestEnum testEnum = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -243,45 +243,26 @@ failure:
   return target;
 }
 
-size_t TestMessage::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:test.TestMessage)
-  size_t total_size = 0;
-
-  if (_internal_has_testenum()) {
-    // required .test.TestEnum testEnum = 1;
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_testenum());
-  }
-
-  if (_internal_has_testint()) {
-    // required int32 testInt = 2;
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_testint());
-  }
-
-  return total_size;
-}
 size_t TestMessage::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:test.TestMessage)
   size_t total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required .test.TestEnum testEnum = 1;
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_testenum());
-
-    // required int32 testInt = 2;
+  // required int32 testInt = 2;
+  if (_internal_has_testint()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
         this->_internal_testint());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
   }
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // optional .test.TestEnum testEnum = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_testenum());
+  }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
@@ -341,7 +322,7 @@ void TestMessage::CopyFrom(const TestMessage& from) {
 }
 
 bool TestMessage::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000002) != 0x00000002) return false;
   return true;
 }
 
